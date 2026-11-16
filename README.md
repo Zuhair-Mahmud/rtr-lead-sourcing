@@ -40,8 +40,8 @@ Left out:
 - Holders whose name contains `spryng` or `commify` (`EXCLUDE_HOLDERS`).
 - Holders that are themselves one of the submitting providers (Twilio,
   LINK Mobility and so on). They are messaging companies, not brands.
-- Anything registered through a provider listed in `EXCLUDE_SUBMITTERS`.
-  **Empty by default** - see "Excluding your own customers" below.
+- Anything registered through MASS Response Service, the provider Spryng and
+  Commify submit through (`EXCLUDE_SUBMITTERS`). See "Existing customers" below.
 - Companies outside Europe or with no recognisable country. They are counted
   in the digest footer but not listed.
 
@@ -72,21 +72,27 @@ the CSV says so in `country_source`.
    country and by provider) instead of thousands of leads.
 4. Nothing else. It runs every morning from then on.
 
-## Excluding your own customers
+## Existing customers
 
-The register does not list Spryng or Commify as a submitting provider; Sender
-IDs are submitted by one of about 13 licensed providers. To drop companies that
-are already customers, set the repo **variable** `EXCLUDE_SUBMITTERS` to the
-name of the provider Spryng/Commify registers through, for example
-`MASS Response Service`. The bootstrap summary lists every provider and how
-many brands each one has, which makes the right name easy to spot.
+Spryng and Commify register their customers' Sender IDs through MASS Response
+Service, so every registration that provider submitted is dropped. Two things
+to know:
+
+- If MASS Response Service also submits for companies that are not Spryng or
+  Commify customers, those are dropped too.
+- A brand that uses MASS Response Service for some Sender IDs and another
+  provider for others still appears, showing only the Sender IDs registered
+  elsewhere. That is a customer splitting traffic, which is worth knowing.
+
+To change this, set the repo variable `EXCLUDE_SUBMITTERS` to a different
+provider name, several separated by commas, or `none` to keep everything.
 
 ## Settings (repo variables, all optional)
 
 | Variable | Default | Effect |
 |---|---|---|
 | `CORE_MARKETS` | `NL,BE,DE,AT` | ISO codes listed first and scored highest |
-| `EXCLUDE_SUBMITTERS` | empty | Providers whose registrations are dropped |
+| `EXCLUDE_SUBMITTERS` | `MASS Response Service` | Providers whose registrations are dropped |
 | `EXCLUDE_HOLDERS` | `spryng,commify` | Holder names that are dropped |
 | `MAX_PER_SECTION` | `15` | Leads shown per Slack section; the rest are in the CSV |
 

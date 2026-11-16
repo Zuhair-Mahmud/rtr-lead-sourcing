@@ -25,8 +25,9 @@ Environment (all optional)
   SLACK_WEBHOOK_URL    where the digest is posted
   WEBHOOK_TEXT_KEY     payload field name, default "text"
   CORE_MARKETS         comma-separated ISO codes listed first, default NL,BE,DE,AT
-  EXCLUDE_SUBMITTERS   comma-separated provider names; companies registered
-                       through them are dropped (your own customers)
+  EXCLUDE_SUBMITTERS   comma-separated provider names; registrations made
+                       through them are dropped (your own customers),
+                       default "MASS Response Service"; set to "none" to keep all
   EXCLUDE_HOLDERS      comma-separated text; holders containing it are dropped,
                        default "spryng,commify"
   MAX_PER_SECTION      leads shown per Slack section, default 15
@@ -110,6 +111,9 @@ TLD_TO_ISO = {iso.lower(): iso for iso in EUROPE}
 TLD_TO_ISO.update({"uk": "GB", "gr": "GR"})
 
 DEFAULT_CORE = "NL,BE,DE,AT"
+# Spryng/Commify register their customers' Sender IDs through this provider,
+# so anything it submitted is treated as an existing customer.
+DEFAULT_EXCLUDE_SUBMITTERS = "MASS Response Service"
 SLACK_LIMIT = 3500  # characters per message; longer digests are split
 
 
@@ -216,7 +220,7 @@ def build_leads(rows, f, exclude_submitters, exclude_holders):
     stats = collections.Counter()
     submitter_names = {norm(r.get(f["submitter"])) for r in rows} if f["submitter"] else set()
     submitter_names.discard("")
-    ex_sub = [norm(s) for s in exclude_submitters]
+    ex_sub = [norm(s) for s in exclude_submitters if norm(s) != "none"]
     ex_hold = [norm(h) for h in exclude_holders]
 
     leads = {}
@@ -518,7 +522,7 @@ def main():
         print(f"[error] could not read the register: {exc}", file=sys.stderr)
         return 1
 
-    leads, stats = build_leads(rows, f, csv_env("EXCLUDE_SUBMITTERS"),
+    leads, stats = build_leads(rows, f, csv_env("EXCLUDE_SUBMITTERS", DEFAULT_EXCLUDE_SUBMITTERS),
                                csv_env("EXCLUDE_HOLDERS", "spryng,commify"))
     europe = [l for l in leads.values() if region_of(l, core) in ("core", "europe")]
     totals = {

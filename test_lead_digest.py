@@ -71,6 +71,13 @@ class Grouping(unittest.TestCase):
         self.assertEqual(leads[ld.norm("bol.com B.V.")]["sender_ids"], ["BOLCOM"])
         self.assertEqual(stats["excluded_own_provider"], 1)
 
+    def test_default_drops_mass_response_and_none_keeps_all(self):
+        rows = [row("OURS", "Customer BV", "NL-1000 Amsterdam, X", durch="MASS Response Service GmbH")]
+        f = ld.resolve_fields(rows)
+        dropped, _ = ld.build_leads(rows, f, [ld.DEFAULT_EXCLUDE_SUBMITTERS], [])
+        kept, _ = ld.build_leads(rows, f, ["none"], [])
+        self.assertEqual((len(dropped), len(kept)), (0, 1))
+
     def test_core_outranks_rest_of_europe(self):
         core = ["NL", "BE", "DE", "AT"]
         rows = [row("A", "Core BV", "NL-1000 Amsterdam, X"), row("B", "Other SA", "F-75001 Paris, Y")]
