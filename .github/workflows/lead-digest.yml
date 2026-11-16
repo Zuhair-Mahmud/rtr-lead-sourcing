@@ -1,0 +1,99 @@
+name: RTR lead digest
+
+# Two attempts each morning (07:23 and 10:23 Amsterdam winter time). GitHub
+# drops some scheduled runs, so the second is a safety net: it posts only if
+# the first one did not run, or if the register changed in between.
+on:
+  schedule:
+    - cron: "23 6 * * *"
+    - cron: "23 9 * * *"
+  workflow_dispatch:
+    inputs:
+      bootstrap:
+        description: "FIRST RUN: seed the baseline and write the full backlog"
+        type: boolean
+        default: false
+      test_notify:
+        description: "Send a test message to Slack"
+        type: boolean
+        default: false
+      dry_run:
+        description: "Print the digest in the run log, post and save nothing"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rtr-lead-digest
+  cancel-in-progress: false
+
+env:
+  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+  WEBHOOK_TEXT_KEY: ${{ vars.WEBHOOK_TEXT_KEY }}
+  # Repo variables (Settings -> Secrets and variables -> Actions -> Variables).
+  # All optional; the script has defaults for each.
+  CORE_MARKETS: ${{ vars.CORE_MARKETS }}
+  EXCLUDE_SUBMITTERS: ${{ vars.EXCLUDE_SUBMITTERS }}
+  EXCLUDE_HOLDERS: ${{ vars.EXCLUDE_HOLDERS }}
+  MAX_PER_SECTION: ${{ vars.MAX_PER_SECTION }}
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run the tests
+        run: python3 -m unittest -q
+
+      - name: Send a test notification
+        if: inputs.test_notify
+        run: python3 lead_digest.py --test-notify
+
+      - name: Build and post the digest
+        id: digest
+        if: "!inputs.test_notify"
+        run: |
+          python3 lead_digest.py \
+            ${{ inputs.bootstrap && '--bootstrap' || '' }} \
+            ${{ inputs.dry_run && '--dry-run' || '' }} | tee -a "$GITHUB_STEP_SUMMARY"
+          exit "${PIPESTATUS[0]}"
+
+      - name: Commit the baseline and CSVs
+        if: steps.digest.outcome == 'success' && !inputs.dry_run
+        run: |
+          git config user.name "rtr-lead-sourcing"
+          git config user.email "actions@github.com"
+          git add state.json leads_backlog.csv digests 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "Lead digest $(date -u +%Y-%m-%d)"
+          git push
+
+      # Without this a broken run is silent: no digest would look the same as
+      # "no new leads".
+      - name: Report a failed run to Slack
+        if: failure()
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request
+          url = (os.environ.get("SLACK_WEBHOOK_URL") or "").strip()
+          if not url:
+              raise SystemExit(0)
+          key = (os.environ.get("WEBHOOK_TEXT_KEY") or "text").strip() or "text"
+          run = (f"{os.environ['GITHUB_SERVER_URL']}/{os.environ['GITHUB_REPOSITORY']}"
+                 f"/actions/runs/{os.environ['GITHUB_RUN_ID']}")
+          text = ("*RTR lead digest: run failed*\n"
+                  "No digest was built, so a quiet channel today does not mean no leads.\n"
+                  f"<{run}|Open the failed run>")
+          req = urllib.request.Request(url, data=json.dumps({key: text}).encode(),
+                                       headers={"Content-Type": "application/json"})
+          try:
+              urllib.request.urlopen(req, timeout=30).read()
+          except Exception as exc:
+              print(f"could not report the failure to Slack: {exc}")
+          PY
