@@ -70,7 +70,9 @@ jobs:
         run: |
           git config user.name "rtr-lead-sourcing"
           git config user.email "actions@github.com"
-          git add state.json leads_backlog.csv digests 2>/dev/null || true
+          # -A, not a path list: on the first run digests/ does not exist yet, and
+          # git add aborts the whole command on one missing path.
+          git add -A
           git diff --staged --quiet || git commit -m "Lead digest $(date -u +%Y-%m-%d)"
           git push
 
