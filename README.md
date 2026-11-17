@@ -10,19 +10,26 @@ into a ranked lead list.
 
 ## What you get
 
-**In Slack, once a day**
+**In Slack, once a day**, in this order:
 
-- New European brands that registered a Sender ID, core markets
-  (NL, BE, DE, AT) first, then the rest of Europe.
-- Known brands that added more Sender IDs (a sign of growing SMS use).
-- Per lead: company, country, score, Sender IDs, current provider,
-  registration date, contact email.
-- "No new European brands today" on quiet days, and a failure alert if a run
-  breaks, so silence never has two meanings.
+1. **New companies on a competitor, core markets** (NL, BE, DE, AT): the
+   sales targets. Each shows the company name, country, how many Sender IDs it
+   holds, which competitor it uses, its Sender IDs and registration date.
+2. **New companies on a competitor, rest of Europe.**
+3. **Our clients also using a competitor:** companies registered through MASS
+   that also register through another provider, including known clients who
+   add a competitor for the first time. A customer success signal.
+4. **Competitor accounts adding Sender IDs:** growing senders on competitors.
+5. **New via MASS, likely our clients:** names only, at the bottom.
+
+Sections show 15 companies in full; any more are listed by name, so no company
+is hidden. Quiet days post "No new companies today", and a failed run posts an
+alert.
 
 **In this repo**
 
-- `leads_backlog.csv` - every European brand in the register, ranked.
+- `leads_backlog.csv` - every European company in the register, companies on
+  competitors first, with a `client_status` and a `competitors` column.
   Rewritten on each run, so it is always current.
 - `digests/YYYY-MM-DD.csv` - the leads from each day's digest.
 - `state.json` - which companies have already been reported. Do not edit.
@@ -70,25 +77,29 @@ the CSV says so in `country_source`.
    country and by provider) instead of thousands of leads.
 4. Nothing else. It runs every morning from then on.
 
-## Existing customers
+## Existing clients
 
-Nothing is filtered by provider. Spryng and Commify register their customers'
-Sender IDs through MASS Response Service, and those registrations are kept, so
-existing customers appear in the digest alongside new prospects. Each lead
-shows the provider it registered through: "via MASS Response Service" means
-the brand may already be a customer, so check before reaching out.
+Spryng and Commify register their clients' Sender IDs through MASS Response
+Service. Every company gets one of three labels:
 
-To hide a provider's registrations later, set the repo variable
-`EXCLUDE_SUBMITTERS` to its name (several separated by commas).
+| Label | Meaning | Where it shows |
+|---|---|---|
+| on a competitor | registered only through other providers | top of the digest |
+| our client, also on a competitor | through MASS and another provider | its own section |
+| our client (via MASS) | only through MASS | names only, at the bottom |
+
+Nothing is dropped. Companies whose legal form is spelled differently across
+entries ("AG" and "Aktiengesellschaft") are merged into one.
 
 ## Settings (repo variables, all optional)
 
 | Variable | Default | Effect |
 |---|---|---|
 | `CORE_MARKETS` | `NL,BE,DE,AT` | ISO codes listed first and scored highest |
+| `OWN_PROVIDER` | `MASS Response Service` | Provider whose companies count as likely clients |
 | `EXCLUDE_SUBMITTERS` | empty (keep all) | Providers whose registrations are dropped |
 | `EXCLUDE_HOLDERS` | `spryng,commify` | Holder names that are dropped |
-| `MAX_PER_SECTION` | `15` | Leads shown per Slack section; the rest are in the CSV |
+| `MAX_PER_SECTION` | `15` | Companies shown in full per section; the rest are listed by name |
 
 ## Before contacting anyone
 

@@ -30,7 +30,11 @@ Environment (all optional)
                        default: none, every provider is kept
   EXCLUDE_HOLDERS      comma-separated text; holders containing it are dropped,
                        default "spryng,commify"
-  MAX_PER_SECTION      leads shown per Slack section, default 15
+  MAX_PER_SECTION      leads shown in full per Slack section, default 15;
+                       the rest are listed by name
+  OWN_PROVIDER         provider Spryng/Commify register through, default
+                       "MASS Response Service"; companies registered only
+                       through it are treated as likely clients
 """
 
 import argparse
@@ -133,6 +137,40 @@ def norm(value):
     return re.sub(r"[^a-z0-9]+", "", str(value or "").casefold())
 
 
+LEGAL_FORMS = (r"\b(gmbh|ag|bv|b v|nv|se|sa|srl|sro|s r o|as|a s|ltd|limited|kg|co|og|gesmbh|ges m b h|"
+               r"gesellschaft|mbh|m b h|plc|inc|llc|aktiengesellschaft|ug|eg|egbr|kft|spa|s p a|ab|oy|"
+               r"aps|asa|sarl|sas|bvba|und|&)\b")
+
+
+def company_key(name):
+    """Grouping key that ignores legal-form spelling, so 'Deutsche Lufthansa AG'
+    and 'Deutsche Lufthansa Aktiengesellschaft' are one company."""
+    text = re.sub(r"[^a-z0-9äöüß ]+", " ", str(name or "").casefold())
+    text = re.sub(LEGAL_FORMS, " ", text)
+    key = norm(text)
+    return key or norm(name)
+
+
+# The provider Spryng/Commify register their clients' Sender IDs through.
+# Companies registered only through it are most likely existing clients.
+DEFAULT_OWN_PROVIDER = "MASS Response Service"
+
+SHORT_PROVIDER = {
+    "massresponse": "MASS", "linkmobility": "LINK Mobility", "tmobile": "Magenta (T-Mobile)",
+    "twilio": "Twilio", "a1telekom": "A1", "messagebird": "MessageBird (Bird)",
+    "hutchisondrei": "Drei", "belgacom": "BICS", "vonage": "Vonage", "telnyx": "Telnyx",
+    "lycamobile": "Lycamobile", "ipaustria": "IP Austria", "aicall": "aicall",
+}
+
+
+def short_provider(name):
+    n = norm(name)
+    for k, v in SHORT_PROVIDER.items():
+        if k in n:
+            return v
+    return str(name).split(" ")[0]
+
+
 def fetch(url, timeout=120):
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
     with urllib.request.urlopen(req, timeout=timeout) as resp:
@@ -218,7 +256,7 @@ def email_country(email):
 def build_leads(rows, f, exclude_submitters, exclude_holders):
     """Group active register rows into companies. Returns (leads, stats)."""
     stats = collections.Counter()
-    submitter_names = {norm(r.get(f["submitter"])) for r in rows} if f["submitter"] else set()
+    submitter_names = {company_key(r.get(f["submitter"])) for r in rows} if f["submitter"] else set()
     submitter_names.discard("")
     ex_sub = [norm(s) for s in exclude_submitters if norm(s) != "none"]
     ex_hold = [norm(h) for h in exclude_holders]
@@ -230,7 +268,7 @@ def build_leads(rows, f, exclude_submitters, exclude_holders):
             stats["deleted"] += 1
             continue
         holder = str(row.get(f["holder"]) or "").strip()
-        key = norm(holder)
+        key = company_key(holder)
         if not key:
             stats["no_holder"] += 1
             continue
@@ -253,6 +291,8 @@ def build_leads(rows, f, exclude_submitters, exclude_holders):
             "emails": [], "addresses": [], "reasons": [], "dates": [],
             "countries": collections.Counter(), "pending": 0,
         })
+        if len(holder) < len(lead["company"]):
+            lead["company"] = holder
         sid = str(row.get(f["sender"]) or "").strip()
         if sid and sid not in lead["sender_ids"]:
             lead["sender_ids"].append(sid)
@@ -298,8 +338,31 @@ def region_of(lead, core):
     return "unknown"
 
 
+def is_own(provider, own):
+    n = norm(provider)
+    return any(o and o in n for o in own)
+
+
+def client_status(lead, own):
+    """'competitor': only on competitors (the sales target).
+    'client_plus': registered through our provider AND a competitor.
+    'client': registered only through our provider, most likely already a client."""
+    mine = [p for p in lead["providers"] if is_own(p, own)]
+    other = [p for p in lead["providers"] if not is_own(p, own)]
+    if mine and other:
+        return "client_plus"
+    if mine:
+        return "client"
+    return "competitor"
+
+
+STATUS_ORDER = {"competitor": 0, "client_plus": 1, "client": 2}
+STATUS_LABEL = {"competitor": "on a competitor", "client_plus": "our client, also on a competitor",
+                "client": "our client (via MASS)"}
+
+
 def score(lead, core):
-    """Transparent 0-100 ranking. See README for the reasoning."""
+    """Ranking inside a section. See README for the reasoning."""
     region = region_of(lead, core)
     s = {"core": 40, "europe": 15}.get(region, 0)
     s += min(len(lead["sender_ids"]), 5) * 6      # more Sender IDs = more traffic
@@ -312,6 +375,11 @@ def score(lead, core):
     return min(s, 100)
 
 
+def rank(leads, core, own):
+    return sorted(leads, key=lambda l: (STATUS_ORDER[client_status(l, own)], -score(l, core),
+                                        l["company"].casefold()))
+
+
 def country_label(code):
     if code in EUROPE:
         return code
@@ -322,53 +390,86 @@ def esc(text):
     return str(text).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def lead_block(lead, core, new_ids=None):
+def provider_line(lead, own):
+    other = [short_provider(p) for p in lead["providers"] if not is_own(p, own)]
+    status = client_status(lead, own)
+    if status == "client":
+        return "Our client (registered via MASS)"
+    if status == "client_plus":
+        return "Our client via MASS, *also uses " + esc(", ".join(other)) + "*"
+    return "Uses *" + esc(", ".join(other)) + "*"
+
+
+def lead_block(lead, core, own, new_ids=None):
     ids = new_ids if new_ids is not None else lead["sender_ids"]
     shown = ", ".join(f"`{esc(i)}`" for i in ids[:6])
     if len(ids) > 6:
         shown += f" +{len(ids) - 6} more"
-    line1 = f"*{esc(lead['company'])}*  ·  {country_label(lead['country'])}  ·  score {score(lead, core)}"
-    label = "New Sender IDs" if new_ids is not None else "Sender IDs"
-    line2 = f"{label}: {shown}"
+    n = len(lead["sender_ids"])
+    out = [f"*{esc(lead['company'])}*  ·  {country_label(lead['country'])}  ·  "
+           f"{n} Sender ID{'s' if n != 1 else ''}",
+           provider_line(lead, own),
+           ("New Sender IDs: " if new_ids is not None else "Sender IDs: ") + shown]
     bits = []
-    if lead["providers"]:
-        bits.append("via " + esc(" / ".join(lead["providers"])))
     if lead["last_registered"]:
         bits.append("registered " + esc(lead["last_registered"][:10]))
     if lead["emails"]:
-        bits.append(esc(lead["emails"][0]))
-    out = [line1, line2]
+        bits.append("register contact " + esc(lead["emails"][0]))
     if bits:
         out.append("  ·  ".join(bits))
     return "\n".join(out)
 
 
-def section(title, leads, core, cap, new_ids_by_key=None):
+def section(title, leads, core, own, cap, new_ids_by_key=None):
     if not leads:
         return []
-    leads = sorted(leads, key=lambda l: (-score(l, core), l["company"].casefold()))
+    leads = rank(leads, core, own)
     blocks = [f"*{title} ({len(leads)})*"]
     for lead in leads[:cap]:
-        blocks.append(lead_block(lead, core, (new_ids_by_key or {}).get(lead["key"])))
+        blocks.append(lead_block(lead, core, own, (new_ids_by_key or {}).get(lead["key"])))
     if len(leads) > cap:
-        blocks.append(f"_+{len(leads) - cap} more in today's CSV_")
+        rest = ", ".join(esc(l["company"]) for l in leads[cap:cap + 30])
+        more = len(leads) - cap - 30
+        blocks.append(f"_Also: {rest}{f' and {more} more (see CSV)' if more > 0 else ''}_")
     return blocks
 
 
-def build_digest(new_leads, expanded, core, cap, when, csv_link, totals):
-    core_new = [l for l in new_leads if region_of(l, core) == "core"]
-    eu_new = [l for l in new_leads if region_of(l, core) == "europe"]
+def name_list(title, leads, core, limit=25):
+    if not leads:
+        return []
+    leads = sorted(leads, key=lambda l: (region_of(l, core) != "core", -len(l["sender_ids"]),
+                                         l["company"].casefold()))
+    names = ", ".join(f"{esc(l['company'])} ({country_label(l['country'])})" for l in leads[:limit])
+    more = f" and {len(leads) - limit} more" if len(leads) > limit else ""
+    return [f"*{title} ({len(leads)})*\n{names}{more}"]
+
+
+def build_digest(new_leads, expanded, switched, core, own, cap, when, csv_link, totals):
+    """new_leads: companies not seen before. expanded: (lead, new Sender IDs) for
+    known companies. switched: known clients that added a competitor."""
+    st = lambda l: client_status(l, own)
+    comp_core = [l for l in new_leads if st(l) == "competitor" and region_of(l, core) == "core"]
+    comp_eu = [l for l in new_leads if st(l) == "competitor" and region_of(l, core) == "europe"]
+    clients_on_comp = [l for l in new_leads if st(l) == "client_plus"] + switched
+    new_clients = [l for l in new_leads if st(l) == "client"]
+    comp_exp = [(l, ids) for l, ids in expanded if st(l) == "competitor"]
     date = when.strftime("%a %d %b %Y")
-    blocks = [f":dart: *Austria SMS leads - {date}*\n"
-              f"{len(core_new) + len(eu_new)} new European brand(s) registered a Sender ID "
-              f"for Austria ({len(core_new)} in core markets)."]
-    blocks += section("Core markets: " + ", ".join(core), core_new, core, cap)
-    blocks += section("Rest of Europe", eu_new, core, cap)
-    exp_leads = [l for l, _ids in expanded]
-    blocks += section("Known brands adding Sender IDs", exp_leads, core, max(5, cap // 3),
-                      {l["key"]: ids for l, ids in expanded})
-    foot = (f"Register: {totals['rows']} entries, {totals['leads']} European brands tracked. "
-            f"Not shown: {totals['outside']} outside Europe, {totals['unknown']} with no country.")
+    head = (f":dart: *Austria SMS leads - {date}*\n"
+            f"*{len(comp_core) + len(comp_eu)} new companies on a competitor* "
+            f"({len(comp_core)} in {', '.join(core)})")
+    if clients_on_comp:
+        head += f"  ·  {len(clients_on_comp)} of our clients also on a competitor"
+    if new_clients:
+        head += f"  ·  {len(new_clients)} new via MASS (likely our clients)"
+    blocks = [head]
+    blocks += section("New on a competitor: " + ", ".join(core), comp_core, core, own, cap)
+    blocks += section("New on a competitor: rest of Europe", comp_eu, core, own, cap)
+    blocks += section("Our clients also using a competitor", clients_on_comp, core, own, cap)
+    blocks += section("Competitor accounts adding Sender IDs", [l for l, _ in comp_exp], core, own,
+                      max(5, cap // 3), {l["key"]: ids for l, ids in comp_exp})
+    blocks += name_list("New via MASS, likely our clients", new_clients, core)
+    foot = (f"Register: {totals['rows']} entries, {totals['leads']} European companies tracked "
+            f"({totals['competitor']} on competitors only).")
     if csv_link:
         foot += f"  <{csv_link}|Today's CSV>"
     blocks.append(f"_{foot}_")
@@ -377,8 +478,8 @@ def build_digest(new_leads, expanded, core, cap, when, csv_link, totals):
 
 def quiet_digest(when, totals):
     return [f":dart: *Austria SMS leads - {when.strftime('%a %d %b %Y')}*\n"
-            f"No new European brands today. {totals['leads']} tracked; "
-            f"the register holds {totals['rows']} entries."]
+            f"No new companies today. {totals['leads']} tracked, "
+            f"{totals['competitor']} of them on competitors only."]
 
 
 def chunk(blocks, limit=SLACK_LIMIT):
@@ -429,25 +530,26 @@ def post_all(blocks):
     return result
 
 
-CSV_COLUMNS = ["score", "region", "company", "country", "country_source", "sender_id_count",
-               "sender_ids", "providers", "emails", "address", "reason",
-               "first_registered", "last_registered"]
+CSV_COLUMNS = ["priority", "client_status", "company", "country", "region", "sender_id_count",
+               "competitors", "sender_ids", "all_providers", "emails", "address", "reason",
+               "first_registered", "last_registered", "score", "country_source"]
 
 
-def write_csv(path, leads, core):
+def write_csv(path, leads, core, own):
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
-    ordered = sorted(leads, key=lambda l: (-score(l, core), l["company"].casefold()))
     with open(path, "w", newline="", encoding="utf-8") as fh:
         w = csv.writer(fh)
         w.writerow(CSV_COLUMNS)
-        for l in ordered:
-            w.writerow([score(l, core), region_of(l, core), l["company"],
-                        country_label(l["country"]), l["country_source"],
-                        len(l["sender_ids"]), " | ".join(l["sender_ids"]),
-                        " | ".join(l["providers"]), " | ".join(l["emails"]),
+        for i, l in enumerate(rank(leads, core, own), 1):
+            w.writerow([i, STATUS_LABEL[client_status(l, own)], l["company"],
+                        country_label(l["country"]), region_of(l, core), len(l["sender_ids"]),
+                        ", ".join(short_provider(p) for p in l["providers"] if not is_own(p, own)),
+                        " | ".join(l["sender_ids"]), " | ".join(l["providers"]),
+                        " | ".join(l["emails"]),
                         l["addresses"][0] if l["addresses"] else "",
                         l["reasons"][0] if l["reasons"] else "",
-                        l["first_registered"][:10], l["last_registered"][:10]])
+                        l["first_registered"][:10], l["last_registered"][:10],
+                        score(l, core), l["country_source"]])
 
 
 def load_state(path):
@@ -472,19 +574,28 @@ def gh_output(**pairs):
                 fh.write(f"{k}={v}\n")
 
 
-def bootstrap_summary(europe_leads, core, totals, providers, backlog_link):
-    by_country = collections.Counter(l["country"] for l in europe_leads)
-    core_n = sum(by_country[c] for c in core)
-    top_c = ", ".join(f"{c} {n}" for c, n in by_country.most_common(8))
-    top_p = "\n".join(f"• {esc(p)}: {n} brands" for p, n in providers.most_common(13))
-    text = (f":dart: *Austria SMS leads - baseline ready*\n"
-            f"{totals['leads']} European brands currently hold a Sender ID for Austria, "
-            f"{core_n} of them in core markets ({', '.join(core)}).\n"
-            f"By country: {top_c}\n\n*Brands per submitting provider*\n{top_p}\n\n"
-            f"From now on this channel gets one digest a day with new brands only.")
+def bootstrap_summary(europe_leads, core, own, totals, providers, backlog_link, top=15):
+    st = lambda l: client_status(l, own)
+    comp_core = [l for l in europe_leads if st(l) == "competitor" and region_of(l, core) == "core"]
+    plus = [l for l in europe_leads if st(l) == "client_plus"]
+    clients = sum(1 for l in europe_leads if st(l) == "client")
+    top_p = ", ".join(f"{short_provider(p)} {n}" for p, n in providers.most_common()
+                      if not is_own(p, own))
+    head = (f":dart: *Austria SMS leads - baseline ready*\n"
+            f"{totals['leads']} European companies hold a Sender ID for Austria:\n"
+            f"• *{totals['competitor']} only on competitors* ({len(comp_core)} in {', '.join(core)})\n"
+            f"• {len(plus)} of our clients also use a competitor\n"
+            f"• {clients} registered only via MASS (likely our clients)\n"
+            f"Competitors by number of companies: {top_p}")
+    blocks = [head]
+    blocks += section(f"Top {top} companies on a competitor: {', '.join(core)}",
+                      rank(comp_core, core, own)[:top], core, own, top)
+    blocks += section("Our clients also using a competitor", plus, core, own, 10)
+    tail = "From tomorrow this channel gets one digest a day: new companies on competitors first."
     if backlog_link:
-        text += f"\n<{backlog_link}|Open the full ranked backlog (CSV)>"
-    return [text]
+        tail += f"\n<{backlog_link}|Full ranked list (CSV), companies on competitors first>"
+    blocks.append(tail)
+    return blocks
 
 
 def main():
@@ -507,6 +618,7 @@ def main():
         return 0 if ok else 1
 
     core = [c.upper() for c in csv_env("CORE_MARKETS", DEFAULT_CORE)]
+    own = [norm(o) for o in csv_env("OWN_PROVIDER", DEFAULT_OWN_PROVIDER)]
     cap = int(env("MAX_PER_SECTION", "15"))
     try:
         if args.input:
@@ -529,6 +641,7 @@ def main():
         "rows": stats["rows"], "leads": len(europe),
         "outside": sum(1 for l in leads.values() if region_of(l, core) == "outside"),
         "unknown": sum(1 for l in leads.values() if region_of(l, core) == "unknown"),
+        "competitor": sum(1 for l in europe if client_status(l, own) == "competitor"),
     }
     providers = collections.Counter(p for l in europe for p in l["providers"])
     print(f"register rows: {stats['rows']}  deleted: {stats['deleted']}  "
@@ -547,23 +660,30 @@ def main():
     first = state is None or args.bootstrap
     known = {} if first else state.get("companies", {})
 
-    new_leads, expanded = [], []
+    new_leads, expanded, switched = [], [], []
     if not first:
         for l in europe:
             prev = known.get(l["key"])
             if prev is None:
                 new_leads.append(l)
-            else:
-                added = [s for s in l["sender_ids"] if s not in set(prev.get("sender_ids", []))]
-                if added:
-                    expanded.append((l, added))
+                continue
+            added = [s for s in l["sender_ids"] if s not in set(prev.get("sender_ids", []))]
+            if added:
+                expanded.append((l, added))
+            # A known client that now also registers through a competitor. Only
+            # judged when the previous run recorded providers, so upgrading the
+            # state file does not flood the channel.
+            if "providers" in prev and client_status(l, own) == "client_plus":
+                had_competitor = any(not is_own(p, own) for p in prev["providers"])
+                if not had_competitor:
+                    switched.append(l)
 
     if first:
-        blocks = bootstrap_summary(europe, core, totals, providers,
+        blocks = bootstrap_summary(europe, core, own, totals, providers,
                                    f"{base}/{args.backlog}" if base else "")
-    elif new_leads or expanded:
+    elif new_leads or expanded or switched:
         digest_path = os.path.join(args.digest_dir, f"{today}.csv")
-        blocks = build_digest(new_leads, expanded, core, cap, now,
+        blocks = build_digest(new_leads, expanded, switched, core, own, cap, now,
                               f"{base}/{digest_path}" if base else "", totals)
     elif state.get("last_post_date") != today:
         blocks = quiet_digest(now, totals)
@@ -571,7 +691,7 @@ def main():
         blocks = []  # a second quiet run on the same day says nothing
 
     print("\n" + "\n\n".join(blocks) if blocks else "\n(nothing to post)")
-    gh_output(new_count=len(new_leads), expanded_count=len(expanded))
+    gh_output(new_count=len(new_leads), expanded_count=len(expanded), switched_count=len(switched))
     if args.dry_run:
         return 0
 
@@ -581,23 +701,24 @@ def main():
         print("[error] Slack rejected the digest; baseline left unchanged", file=sys.stderr)
         return 1
 
-    write_csv(args.backlog, europe, core)
-    if new_leads or expanded:
+    write_csv(args.backlog, europe, core, own)
+    if new_leads or expanded or switched:
         path = os.path.join(args.digest_dir, f"{today}.csv")
-        todays = new_leads + [l for l, _ in expanded]
+        todays = new_leads + [l for l, _ in expanded] + [l for l in switched if l not in new_leads]
         if os.path.exists(path):  # an earlier run today already wrote some
             with open(path, encoding="utf-8") as fh:
                 earlier = {r["company"] for r in csv.DictReader(fh)}
             todays += [l for l in europe if l["company"] in earlier and l not in todays]
-        write_csv(path, todays, core)
+        write_csv(path, todays, core, own)
 
     companies = dict(known)
     for l in europe:
         entry = companies.get(l["key"], {"first_seen": today})
         entry["sender_ids"] = sorted(set(entry.get("sender_ids", [])) | set(l["sender_ids"]))
+        entry["providers"] = sorted(set(entry.get("providers", [])) | set(l["providers"]))
         companies[l["key"]] = entry
     save_state(args.state, {
-        "version": 1, "source": API, "last_run": now.isoformat(timespec="seconds"),
+        "version": 2, "source": API, "last_run": now.isoformat(timespec="seconds"),
         "last_post_date": today if blocks else (state or {}).get("last_post_date", ""),
         "companies": companies,
     })

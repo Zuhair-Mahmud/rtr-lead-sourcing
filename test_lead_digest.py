@@ -35,7 +35,7 @@ class Grouping(unittest.TestCase):
         self.leads, self.stats = ld.build_leads(BASE, f, [], ["spryng", "commify"])
 
     def test_company_is_one_lead_with_all_sender_ids(self):
-        bol = self.leads[ld.norm("bol.com B.V.")]
+        bol = self.leads[ld.company_key("bol.com B.V.")]
         self.assertEqual(bol["sender_ids"], ["BOLCOM", "BOL"])
         self.assertEqual(len(bol["providers"]), 2)
         self.assertEqual(bol["country"], "NL")
@@ -44,9 +44,9 @@ class Grouping(unittest.TestCase):
         self.assertEqual(ld.resolve_fields(BASE)["status"], "status")
 
     def test_exclusions(self):
-        self.assertNotIn(ld.norm("Spryng B.V."), self.leads)          # own brand
-        self.assertNotIn(ld.norm("Twilio Ireland Limited"), self.leads)  # a provider
-        self.assertNotIn(ld.norm("Gone GmbH"), self.leads)            # deleted
+        self.assertNotIn(ld.company_key("Spryng B.V."), self.leads)          # own brand
+        self.assertNotIn(ld.company_key("Twilio Ireland Limited"), self.leads)  # a provider
+        self.assertNotIn(ld.company_key("Gone GmbH"), self.leads)            # deleted
 
     def test_regions(self):
         core = ["NL", "BE", "DE", "AT"]
@@ -68,7 +68,7 @@ class Grouping(unittest.TestCase):
 
     def test_exclude_submitter(self):
         leads, stats = ld.build_leads(BASE, ld.resolve_fields(BASE), ["MessageBird"], [])
-        self.assertEqual(leads[ld.norm("bol.com B.V.")]["sender_ids"], ["BOLCOM"])
+        self.assertEqual(leads[ld.company_key("bol.com B.V.")]["sender_ids"], ["BOLCOM"])
         self.assertEqual(stats["excluded_own_provider"], 1)
 
     def test_mass_response_registrations_are_kept_by_default(self):
@@ -83,6 +83,40 @@ class Grouping(unittest.TestCase):
         leads, _ = ld.build_leads(rows, ld.resolve_fields(rows), [], [])
         s = {l["company"]: ld.score(l, core) for l in leads.values()}
         self.assertGreater(s["Core BV"], s["Other SA"])
+
+
+class Priority(unittest.TestCase):
+    OWN = [ld.norm(ld.DEFAULT_OWN_PROVIDER)]
+
+    def test_status_and_order(self):
+        rows = [row("A", "Comp BV", "NL-1000 Amsterdam, X"),
+                row("B", "Client BV", "NL-1000 Amsterdam, X", durch="MASS Response Service GmbH"),
+                row("C", "Both BV", "NL-1000 Amsterdam, X", durch="MASS Response Service GmbH"),
+                row("D", "Both BV", "NL-1000 Amsterdam, X", durch="LINK Mobility Austria GmbH")]
+        leads, _ = ld.build_leads(rows, ld.resolve_fields(rows), [], [])
+        st = {l["company"]: ld.client_status(l, self.OWN) for l in leads.values()}
+        self.assertEqual(st, {"Comp BV": "competitor", "Client BV": "client", "Both BV": "client_plus"})
+        order = [l["company"] for l in ld.rank(list(leads.values()), ["NL"], self.OWN)]
+        self.assertEqual(order, ["Comp BV", "Both BV", "Client BV"])
+
+    def test_legal_form_spellings_merge(self):
+        rows = [row("LH", "Deutsche Lufthansa AG", "D-50679 Koeln, X"),
+                row("LH2", "Deutsche Lufthansa Aktiengesellschaft", "D-50679 Koeln, X")]
+        leads, _ = ld.build_leads(rows, ld.resolve_fields(rows), [], [])
+        self.assertEqual(len(leads), 1)
+        self.assertEqual(next(iter(leads.values()))["company"], "Deutsche Lufthansa AG")
+
+    def test_digest_puts_competitors_first_and_names_mass_clients(self):
+        rows = [row("A", "Comp BV", "NL-1000 Amsterdam, X"),
+                row("B", "Client BV", "NL-1000 Amsterdam, X", durch="MASS Response Service GmbH")]
+        leads, _ = ld.build_leads(rows, ld.resolve_fields(rows), [], [])
+        import datetime as dt
+        totals = {"rows": 2, "leads": 2, "competitor": 1}
+        text = "\n\n".join(ld.build_digest(list(leads.values()), [], [], ["NL"], self.OWN, 15,
+                                            dt.datetime(2026, 11, 18), "", totals))
+        self.assertLess(text.index("Comp BV"), text.index("Client BV"))
+        self.assertIn("Uses *Twilio*", text)
+        self.assertIn("New via MASS, likely our clients (1)*\nClient BV (NL)", text)
 
 
 class Chunking(unittest.TestCase):
@@ -116,7 +150,7 @@ class EndToEnd(unittest.TestCase):
             second = self.run_cli(tmp, more)
             self.assertEqual(second.returncode, 0, second.stderr)
             self.assertIn("Coolblue B.V.", second.stdout)
-            self.assertIn("Known brands adding Sender IDs", second.stdout)
+            self.assertIn("Competitor accounts adding Sender IDs", second.stdout)
             self.assertIn("`ZLND`", second.stdout)
             self.assertNotIn("NewCo LLC", second.stdout)   # outside Europe
             self.assertNotIn("bol.com", second.stdout)     # already known
@@ -124,6 +158,15 @@ class EndToEnd(unittest.TestCase):
 
             third = self.run_cli(tmp, more)
             self.assertIn("(nothing to post)", third.stdout)  # same day, nothing new
+
+    def test_client_adding_a_competitor_is_flagged(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            mass = row("OURS", "Kunde GmbH", "D-10115 Berlin, X", durch="MASS Response Service GmbH")
+            self.run_cli(tmp, BASE + [mass], "--bootstrap")
+            moved = row("OURS2", "Kunde GmbH", "D-10115 Berlin, X", durch="Twilio Ireland Ltd")
+            res = self.run_cli(tmp, BASE + [mass, moved])
+            self.assertIn("Our clients also using a competitor (1)", res.stdout)
+            self.assertIn("also uses Twilio", res.stdout)
 
     def test_dry_run_saves_nothing(self):
         with tempfile.TemporaryDirectory() as tmp:
