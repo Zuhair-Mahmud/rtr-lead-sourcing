@@ -1,12 +1,12 @@
 name: RTR lead digest
 
-# Two attempts each morning (07:23 and 10:23 Amsterdam winter time). GitHub
-# drops some scheduled runs, so the second is a safety net: it posts only if
-# the first one did not run, or if the register changed in between.
+# GitHub starts scheduled runs late or not at all when it is busy (on 18 Nov
+# neither morning slot ran), so there are six slots, 06:23 to 16:23 Amsterdam
+# winter time. The first run that happens posts the day's digest; later runs
+# stay silent unless new companies appear in between.
 on:
   schedule:
-    - cron: "23 6 * * *"
-    - cron: "23 9 * * *"
+    - cron: "23 5-15/2 * * *"
   workflow_dispatch:
     inputs:
       bootstrap:
