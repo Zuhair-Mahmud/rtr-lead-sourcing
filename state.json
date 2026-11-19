@@ -773,6 +773,15 @@
 "ANGEL React"
 ]
 },
+"adasimisp": {
+"first_seen": "2026-11-19",
+"providers": [
+"Belgacom International Carrier Services S.A."
+],
+"sender_ids": [
+"Truo"
+]
+},
 "adaybookingcom": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -3133,6 +3142,15 @@
 ],
 "sender_ids": [
 "Almmonte"
+]
+},
+"andreaskinskyprivateindividual": {
+"first_seen": "2026-11-19",
+"providers": [
+"Telnyx Ireland Ltd."
+],
+"sender_ids": [
+"KinskySMS"
 ]
 },
 "andreasneumller": {
@@ -6064,6 +6082,16 @@
 "Auto Retzer"
 ]
 },
+"autoritatdeltransportmetropolitdebarcelona": {
+"first_seen": "2026-11-19",
+"providers": [
+"Hutchison Drei Austria GmbH"
+],
+"sender_ids": [
+"T-MOBILITAT",
+"T-mobilitat"
+]
+},
 "autorolagroup": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -7993,6 +8021,16 @@
 ],
 "sender_ids": [
 "Benu GmbH"
+]
+},
+"bepeace": {
+"first_seen": "2026-11-19",
+"providers": [
+"Belgacom International Carrier Services S.A."
+],
+"sender_ids": [
+"BE PEACE",
+"Be Peace"
 ]
 },
 "bereal": {
@@ -10624,6 +10662,15 @@
 "Rombach"
 ]
 },
+"buchungswelt": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"AbInsBlaue"
+]
+},
 "buddyhealthcare": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -11392,6 +11439,15 @@
 "Bogehoj"
 ]
 },
+"canalluxembourgsarl": {
+"first_seen": "2026-11-19",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"CANAL+"
+]
+},
 "canaltech": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -12020,6 +12076,15 @@
 "Pilepoils"
 ]
 },
+"centredetelecomunicacionsitecnologiesdelainformaciodelageneralitatdecatalunya": {
+"first_seen": "2026-11-19",
+"providers": [
+"Hutchison Drei Austria GmbH"
+],
+"sender_ids": [
+"GENCAT"
+]
+},
 "centrehospitalieruniversitairevaudois": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -12252,6 +12317,15 @@
 ],
 "sender_ids": [
 "ChezJanou"
+]
+},
+"chhuberbicycles": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"huberista"
 ]
 },
 "chianesepartners": {
@@ -13569,6 +13643,17 @@
 ],
 "sender_ids": [
 "CONSEQ"
+]
+},
+"consorciadministracioobertadecatalunya": {
+"first_seen": "2026-11-19",
+"providers": [
+"Hutchison Drei Austria GmbH"
+],
+"sender_ids": [
+"AOC",
+"idCAT",
+"idCATMobil"
 ]
 },
 "consorsfinanzbnpparibassaniederlassungdeutschland": {
@@ -15499,6 +15584,15 @@
 "DRK Berlin"
 ]
 },
+"deutschestadtmarketing": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"dsm-2024-1"
+]
+},
 "deutschetelekomsecurity": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -17312,6 +17406,15 @@
 "Dr Hansi"
 ]
 },
+"drhauerdrglaserdrfehrfachrztefrinneremedizin": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"InternistBN"
+]
+},
 "drhemmastraussmsc": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -17400,6 +17503,15 @@
 ],
 "sender_ids": [
 "Dr Heinisch"
+]
+},
+"drjessikaheinischfachrztinfrhautgeschlechtskrankheiten": {
+"first_seen": "2026-11-19",
+"providers": [
+"Hutchison Drei Austria GmbH"
+],
+"sender_ids": [
+"DrHeinisch"
 ]
 },
 "drjohannesschaffer": {
@@ -19733,9 +19845,11 @@
 "elkomelectronicukommunikationstechnik": {
 "first_seen": "2026-11-18",
 "providers": [
+"Hutchison Drei Austria GmbH",
 "MASS Response Service GmbH"
 ],
 "sender_ids": [
+"ELKOM",
 "ELKOM GmbH"
 ]
 },
@@ -20489,6 +20603,15 @@
 "ESV Shop"
 ]
 },
+"ericssonaustria": {
+"first_seen": "2026-11-19",
+"providers": [
+"Hutchison Drei Austria GmbH"
+],
+"sender_ids": [
+"Ericsson"
+]
+},
 "ermes": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -20908,6 +21031,15 @@
 ],
 "sender_ids": [
 "Eurincasso"
+]
+},
+"eurobankbulgariaad": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"EUROBANKBG"
 ]
 },
 "eurodata": {
@@ -22848,6 +22980,15 @@
 "FineGueule"
 ]
 },
+"finesteood": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"FINEST"
+]
+},
 "fingo": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -22992,6 +23133,15 @@
 ],
 "sender_ids": [
 "FIORDigital"
+]
+},
+"firead": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"FIREAD"
 ]
 },
 "fireappdoo": {
@@ -24203,6 +24353,15 @@
 ],
 "sender_ids": [
 "FFWStegen"
+]
+},
+"freiwilligefeuerwehrtarsdorf": {
+"first_seen": "2026-11-19",
+"providers": [
+"Hutchison Drei Austria GmbH"
+],
+"sender_ids": [
+"FFT-Einsatz"
 ]
 },
 "frejatransportlogistics": {
@@ -27640,6 +27799,15 @@
 "Habau Group"
 ]
 },
+"habermaass": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"Wehrfritz"
+]
+},
 "habishopshandelsgesellschaft": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -27716,6 +27884,15 @@
 "HCDionysen",
 "HCLinz",
 "HCTraun"
+]
+},
+"hajus": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"ichZafe"
 ]
 },
 "hallagkommunal": {
@@ -27915,6 +28092,15 @@
 ],
 "sender_ids": [
 "AERD"
+]
+},
+"happinesseood": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"HAPPINESS"
 ]
 },
 "happn": {
@@ -32315,6 +32501,15 @@
 "ISN-Austria"
 ]
 },
+"isocell": {
+"first_seen": "2026-11-19",
+"providers": [
+"Hutchison Drei Austria GmbH"
+],
+"sender_ids": [
+"ISOCELL"
+]
+},
 "isocketsystems": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -32591,6 +32786,15 @@
 ],
 "sender_ids": [
 "IU-AUT"
+]
+},
+"ivamarspzoo": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"AutoPan"
 ]
 },
 "iveco": {
@@ -33446,6 +33650,15 @@
 "JAW-STAR",
 "JAW-TZ",
 "JAW-WTB"
+]
+},
+"jugenddreieckjgdconsulting": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"Anti-Aging"
 ]
 },
 "juhuubikebox": {
@@ -45133,6 +45346,15 @@
 "Oda"
 ]
 },
+"oddobhfsca": {
+"first_seen": "2026-11-19",
+"providers": [
+"Hutchison Drei Austria GmbH"
+],
+"sender_ids": [
+"ODDOBHF"
+]
+},
 "odhadzdarma": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -45475,6 +45697,18 @@
 "OMV_IT",
 "OMV_ITAlert",
 "OMV_ITsTime"
+]
+},
+"omvpetromsa": {
+"first_seen": "2026-11-19",
+"providers": [
+"Hutchison Drei Austria GmbH"
+],
+"sender_ids": [
+"OMV",
+"OMV Alert",
+"OMV Card AT",
+"OMV Petrom"
 ]
 },
 "oncegermany": {
@@ -52669,6 +52903,15 @@
 "RAISIOGROUP"
 ]
 },
+"rakbeautyprojectownerinhaberinyuliiasotula": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"Rak_beautyP"
+]
+},
 "ralphprll": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -54628,6 +54871,15 @@
 ],
 "sender_ids": [
 "R+V BKK"
+]
+},
+"ryabinincampssiaifsa": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"SUMMER CAMP"
 ]
 },
 "ryanairdac": {
@@ -59598,6 +59850,15 @@
 "SPOETirol"
 ]
 },
+"sptriadaprivateschool": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"TRINITY"
+]
+},
 "squaretrade": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -62194,6 +62455,15 @@
 "Tchibo"
 ]
 },
+"tcziraatbankasisofiabranch": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"ZIRAATBANK"
+]
+},
 "tdexpress": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -62635,6 +62905,15 @@
 ],
 "sender_ids": [
 "WEG Bank AG"
+]
+},
+"tenenpaymentsad": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"TENENPAY"
 ]
 },
 "tenios": {
@@ -63572,6 +63851,15 @@
 "Tokmanni"
 ]
 },
+"tokudabankad": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"TOKUDABANK"
+]
+},
 "tollcollect": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -63590,6 +63878,15 @@
 "Tolletaten"
 ]
 },
+"tombowbulgariaeood": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"TOMBOWBG"
+]
+},
 "tomeu": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -63597,6 +63894,15 @@
 ],
 "sender_ids": [
 "Tom"
+]
+},
+"tonbonbonkidseood": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"TONBONBON"
 ]
 },
 "tonyschocolonelynederland": {
@@ -64150,6 +64456,15 @@
 ],
 "sender_ids": [
 "TRAVELTIX"
+]
+},
+"traventuriaood": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"TRAVENTURIA"
 ]
 },
 "travisroadservicestechnology": {
@@ -64986,6 +65301,15 @@
 "UcaFirma"
 ]
 },
+"uchaood": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"UCHASE"
+]
+},
 "uddannelsesforskningsstyrelsensit": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -65217,6 +65541,24 @@
 "UniCreditSK"
 ]
 },
+"unicreditbulbankad": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"UNICREDIT"
+]
+},
+"unicreditconsumerfinancingead": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"UNICONSFIN"
+]
+},
 "unicreditconsumerfinancingifnsa": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -65407,6 +65749,15 @@
 ],
 "sender_ids": [
 "UNIQA"
+]
+},
+"uniqueestatesad": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"UNIQESTATES"
 ]
 },
 "unitedbulgarianbank": {
@@ -65891,6 +66242,15 @@
 ],
 "sender_ids": [
 "UtmostGroup"
+]
+},
+"uzunovdentalagppdp": {
+"first_seen": "2026-11-19",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"UZUNOVDENT"
 ]
 },
 "vacacionesedreamsslu": {
@@ -70115,6 +70475,15 @@
 "VR-MainBank"
 ]
 },
+"vrpayment": {
+"first_seen": "2026-11-19",
+"providers": [
+"Hutchison Drei Austria GmbH"
+],
+"sender_ids": [
+"VR Payment"
+]
+},
 "vrplusaltmarkwendland": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -70833,6 +71202,7 @@
 "FlorenceO",
 "FlorenceOut",
 "OFLORENCE",
+"OUTLET",
 "SALTuPEPPER"
 ]
 },
@@ -71394,6 +71764,15 @@
 ],
 "sender_ids": [
 "PesenbachW"
+]
+},
+"wirtschaftimwalgauggmbh": {
+"first_seen": "2026-11-19",
+"providers": [
+"Hutchison Drei Austria GmbH"
+],
+"sender_ids": [
+"LIW Walgau"
 ]
 },
 "wirtschaftsagenturwieneinfondsderstadtwien": {
@@ -73270,8 +73649,8 @@
 ]
 }
 },
-"last_post_date": "2026-11-18",
-"last_run": "2026-11-18T21:28:38+00:00",
+"last_post_date": "2026-11-19",
+"last_run": "2026-11-19T09:15:38+00:00",
 "source": "https://data.rtr.at/api/v2/tables/tk-sms?mediaType=json&unpaged=true",
 "version": 2
 }
