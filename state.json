@@ -8005,6 +8005,15 @@
 "Relivebox"
 ]
 },
+"benjaminmichaelmayrhuber": {
+"first_seen": "2026-11-20",
+"providers": [
+"MessageBird B.V."
+],
+"sender_ids": [
+"Localynk"
+]
+},
 "bensbergerbank": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -12528,6 +12537,15 @@
 "FFHLEinsatz"
 ]
 },
+"christophharaldholubar": {
+"first_seen": "2026-11-20",
+"providers": [
+"MessageBird B.V."
+],
+"sender_ids": [
+"Cleverloyal"
+]
+},
 "christophkecht": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -12877,6 +12895,15 @@
 ],
 "sender_ids": [
 "My CKW"
+]
+},
+"ckwebster": {
+"first_seen": "2026-11-20",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"KASKUCHL"
 ]
 },
 "claiverly": {
@@ -13668,9 +13695,11 @@
 "containexcontainerhandelsgesellschaft": {
 "first_seen": "2026-11-18",
 "providers": [
+"MASS Response Service GmbH",
 "T-Mobile Austria GmbH"
 ],
 "sender_ids": [
+"CONTAINEX",
 "Containex"
 ]
 },
@@ -13901,6 +13930,15 @@
 "Sezamo"
 ]
 },
+"cpcomboiosdeportugalepe": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"CP"
+]
+},
 "cpspbelginvhoofdkantoor": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -14021,6 +14059,15 @@
 ],
 "sender_ids": [
 "CredoWeb"
+]
+},
+"creoline": {
+"first_seen": "2026-11-20",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"creoline"
 ]
 },
 "crisescontrol": {
@@ -14674,6 +14721,15 @@
 "DASPORT"
 ]
 },
+"dasursprung": {
+"first_seen": "2026-11-20",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"DasUrsprung"
+]
+},
 "datacollecttrafficsystems": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -14875,7 +14931,8 @@
 "MASS Response Service GmbH"
 ],
 "sender_ids": [
-"ZAHN OASE"
+"ZAHN OASE",
+"ZAHN-OASE"
 ]
 },
 "ddrdenkwolfgang": {
@@ -16811,6 +16868,15 @@
 "DPD NL"
 ]
 },
+"dpgastro": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"TanteKaethe"
+]
+},
 "dpnorway": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -16835,7 +16901,8 @@
 "MASS Response Service GmbH"
 ],
 "sender_ids": [
-"mini smile"
+"mini smile",
+"mini-smile"
 ]
 },
 "dragscampingstugby": {
@@ -17128,6 +17195,15 @@
 ],
 "sender_ids": [
 "Lauterbach"
+]
+},
+"drdanielhorak": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"Al Dente"
 ]
 },
 "drdavidwstner": {
@@ -17822,6 +17898,15 @@
 "ZA Heinen"
 ]
 },
+"drmeddentkaransharmamsc": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"PG XO dent"
+]
+},
 "drmeddentkhaldounalhajikhalifah": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -17848,6 +17933,15 @@
 "sender_ids": [
 "Dr  Ruech",
 "Dr Ruech"
+]
+},
+"drmeddentmaximilianchrist": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"PRIODENT"
 ]
 },
 "drmeddentmaximiliangrafinger": {
@@ -18291,6 +18385,15 @@
 ],
 "sender_ids": [
 "DrRS6020iBK"
+]
+},
+"drspisicoliver": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"INNsmile"
 ]
 },
 "drstefangalehr": {
@@ -20676,6 +20779,15 @@
 "ERRAPers"
 ]
 },
+"erstebankderoesterreichischensparkassen": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"Sparkasse"
+]
+},
 "erstebankdersterreichischensparkassen": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -21347,6 +21459,7 @@
 "Twilio Ireland Ltd"
 ],
 "sender_ids": [
+"Xodo Sign",
 "eversign"
 ]
 },
@@ -21767,6 +21880,15 @@
 "oefag"
 ]
 },
+"fahrlehrercompanydirschlmayrdifhmarkusdirschlmayr": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"Steirerdriv"
+]
+},
 "fahrradcenteroberland": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -21792,6 +21914,15 @@
 ],
 "sender_ids": [
 "FS Aspern"
+]
+},
+"fahrschuleburtscheringnenning": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"FSBurtscher"
 ]
 },
 "fahrschuleclemenskontschieder": {
@@ -21828,6 +21959,24 @@
 ],
 "sender_ids": [
 "FSFast"
+]
+},
+"fahrschulefinazzeringgerhardgratl": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"FS Finazzer"
+]
+},
+"fahrschulegrandinhingandreasteiner": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"FS Grand"
 ]
 },
 "fahrschulehauereuinhaberclemenshauer": {
@@ -21947,6 +22096,15 @@
 "FS Mayr"
 ]
 },
+"fahrschulemichelbeuerninhmagbarbaraschwara": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"FS Michelb"
+]
+},
 "fahrschulemoritz": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -22028,6 +22186,15 @@
 "FS Schenay"
 ]
 },
+"fahrschuleschninhmagmagingkarlpevec": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"FS Schoen"
+]
+},
 "fahrschulesommerriedl": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -22055,6 +22222,15 @@
 "Staudinger"
 ]
 },
+"fahrschulesteigeininhbettinagansterer": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"FS SteigEin"
+]
+},
 "fahrschulesteinmetztanjawillixhofer": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -22062,6 +22238,24 @@
 ],
 "sender_ids": [
 "FsSteinmetz"
+]
+},
+"fahrschuleviennaingmustafaisceleu": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"FS Vienna"
+]
+},
+"fahrschulewienelfeuinhorhankarakoc": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"FS Wien Elf"
 ]
 },
 "fahrschulewiennord": {
@@ -22107,6 +22301,15 @@
 ],
 "sender_ids": [
 "Stegenwald"
+]
+},
+"fahrsicherheitszentrumvorarlberg": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"DrivingCamp"
 ]
 },
 "faircore": {
@@ -22333,6 +22536,15 @@
 ],
 "sender_ids": [
 "Fastweb"
+]
+},
+"fatgeorge": {
+"first_seen": "2026-11-20",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"FatGeorge"
 ]
 },
 "fattorialavialladigianniantonioebandinolofrancosocietaagricolasemplice": {
@@ -24174,6 +24386,15 @@
 "GSTravel"
 ]
 },
+"franzalschinger": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"Alschinger"
+]
+},
 "franzhammerreisebrobusunternehmeneu": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -25211,6 +25432,16 @@
 "Gausta View"
 ]
 },
+"gaustergastronomie": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"Francis",
+"dreizehn"
+]
+},
 "gaxa": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -26080,6 +26311,15 @@
 ],
 "sender_ids": [
 "GF Money"
+]
+},
+"gfrererugfrererhotelrestaurantbetriebsgmbh": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"BlaueGans"
 ]
 },
 "giardiniditoscanasrl": {
@@ -30084,6 +30324,15 @@
 "Hoertechnik"
 ]
 },
+"hrtisfahrschuleinhingwernerpirker": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"FS Hoertis"
+]
+},
 "hrwmotorrad": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -32235,6 +32484,15 @@
 "invia2waycz"
 ]
 },
+"invibeinnsbruck": {
+"first_seen": "2026-11-20",
+"providers": [
+"Hutchison Drei Austria GmbH"
+],
+"sender_ids": [
+"INVIBE"
+]
+},
 "inviteguesttechnolgy": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -33427,6 +33685,15 @@
 "JWeber"
 ]
 },
+"johannfeilmeier": {
+"first_seen": "2026-11-20",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"FMLandleben"
+]
+},
 "johannpabstholzindustrie": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -33695,6 +33962,15 @@
 ],
 "sender_ids": [
 "tattoo4ju"
+]
+},
+"juliasoraperra": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"Salon179"
 ]
 },
 "juliusblum": {
@@ -35704,6 +35980,15 @@
 ],
 "sender_ids": [
 "krin"
+]
+},
+"kreuzwirtbetriebs": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"KREUZWIRT"
 ]
 },
 "krispolspolkazograniczonaodpowiedzialnoscia": {
@@ -39047,6 +39332,15 @@
 "Prof Huemer"
 ]
 },
+"magrainerbracharzbracharzconsulting": {
+"first_seen": "2026-11-20",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"CashMich"
+]
+},
 "magsusannebrandsttterzeitlinger": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -40825,7 +41119,11 @@
 ],
 "sender_ids": [
 "AlticeMeo",
-"MEO"
+"MEO",
+"SAPO",
+"SAPO Mail",
+"VOA",
+"WifiM"
 ]
 },
 "meranererwin": {
@@ -42819,7 +43117,8 @@
 "MASS Response Service GmbH"
 ],
 "sender_ids": [
-"MULTICERT"
+"MULTICERT",
+"Multicert"
 ]
 },
 "municipiultimisoara": {
@@ -44878,6 +45177,15 @@
 ],
 "sender_ids": [
 "Arrivel"
+]
+},
+"novocure": {
+"first_seen": "2026-11-20",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"Novocure"
 ]
 },
 "novogenia": {
@@ -53702,6 +54010,15 @@
 "VIEUXMURS"
 ]
 },
+"restaurantsternchristianwerner": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"Stern"
+]
+},
 "restaurantwaldesruh": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -55148,6 +55465,15 @@
 "SAAG Fsms"
 ]
 },
+"salonkeesa": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"Salonkee"
+]
+},
 "salonmelaniewinkler": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -55843,6 +56169,15 @@
 ],
 "sender_ids": [
 "Scheifling"
+]
+},
+"scheinweltdiefahrschuleeuinhhelmutrnstler": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"Schein Welt"
 ]
 },
 "schelhammercapitalbank": {
@@ -57410,6 +57745,15 @@
 "Silbernagl"
 ]
 },
+"silkandsalthospitality": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"RestaurantS"
+]
+},
 "silverbeteood": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -58067,6 +58411,15 @@
 ],
 "sender_ids": [
 "PREVISEC"
+]
+},
+"smarteletecsociedadlimitada": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"NUMERO"
 ]
 },
 "smartgoodthingsholding": {
@@ -61955,6 +62308,15 @@
 "Sympany"
 ]
 },
+"symvaro": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"Muell App"
+]
+},
 "synaptix": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -62547,6 +62909,15 @@
 ],
 "sender_ids": [
 "Teburio"
+]
+},
+"techboldsecureit": {
+"first_seen": "2026-11-20",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"techbold"
 ]
 },
 "techdataohg": {
@@ -65784,6 +66155,8 @@
 "MASS Response Service GmbH"
 ],
 "sender_ids": [
+"UO Info",
+"United Opt",
 "UnitedOptic"
 ]
 },
@@ -66535,7 +66908,8 @@
 "sender_ids": [
 "Bewag",
 "ENPURE",
-"HEW"
+"HEW",
+"Vattenfall"
 ]
 },
 "vauction": {
@@ -67218,6 +67592,7 @@
 "LINK Mobility Austria GmbH"
 ],
 "sender_ids": [
+"RoterOchsen",
 "VETTER HD"
 ]
 },
@@ -71909,6 +72284,8 @@
 "MASS Response Service GmbH"
 ],
 "sender_ids": [
+"LSLCoaching",
+"LsL",
 "WKO BQM",
 "WKO IT",
 "WKO Inhouse"
@@ -72008,6 +72385,15 @@
 ],
 "sender_ids": [
 "WOHNSCHICK"
+]
+},
+"wohnungseigentmergemeinntzigewohnbaugesellschaft": {
+"first_seen": "2026-11-20",
+"providers": [
+"T-Mobile Austria GmbH"
+],
+"sender_ids": [
+"WETgruppe"
 ]
 },
 "wohnzentrumjungmannag": {
@@ -73649,8 +74035,8 @@
 ]
 }
 },
-"last_post_date": "2026-11-19",
-"last_run": "2026-11-19T22:42:32+00:00",
+"last_post_date": "2026-11-20",
+"last_run": "2026-11-20T06:32:18+00:00",
 "source": "https://data.rtr.at/api/v2/tables/tk-sms?mediaType=json&unpaged=true",
 "version": 2
 }
