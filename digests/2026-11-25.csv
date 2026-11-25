@@ -1,0 +1,4 @@
+priority,client_status,company,country,region,sender_id_count,competitors,sender_ids,all_providers,emails,address,reason,first_registered,last_registered,score,country_source
+1,on a competitor,DRACOON GmbH,DE,core,1,LINK Mobility,DRACOON,LINK Mobility Austria GmbH,dave.radke@kiteworks.com,"D-93053 Regensburg, Galgenbergstraße 2A",Eine Abkürzung des Unternehmensnamen und Eingetragene Marke des Unternehmens,2026-11-24,2026-11-24,51,address
+2,on a competitor,Beneganic GmbH,CH,europe,1,Twilio,BENEGANICCH,Twilio Ireland Ltd,b.ahlert@beneganic.com,"CH-8807 Freienbach, Wolleraustrasse 11A",Die beantragte Sender-ID stimmt mit dem offiziellen Firmennamen überein,2026-11-24,2026-11-24,36,address
+3,on a competitor,bet-at-home.com Internet Ltd.,MT,europe,2,LINK Mobility,bet-at-home | betathome,LINK Mobility Austria GmbH,office@bet-at-home.com,"M-1180 Mosta, Cornerstone Business Centre, Level 2, Suite 1",,2026-09-29,2026-11-24,32,address

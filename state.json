@@ -8024,6 +8024,15 @@
 "Beneflo"
 ]
 },
+"beneganic": {
+"first_seen": "2026-11-25",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"BENEGANICCH"
+]
+},
 "benetics": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -8432,6 +8441,7 @@
 "LINK Mobility Austria GmbH"
 ],
 "sender_ids": [
+"bet-at-home",
 "betathome"
 ]
 },
@@ -17109,6 +17119,15 @@
 ],
 "sender_ids": [
 "FoodTankers"
+]
+},
+"dracoon": {
+"first_seen": "2026-11-25",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"DRACOON"
 ]
 },
 "dradelakahler": {
@@ -74803,8 +74822,8 @@
 ]
 }
 },
-"last_post_date": "2026-11-24",
-"last_run": "2026-11-24T16:00:23+00:00",
+"last_post_date": "2026-11-25",
+"last_run": "2026-11-25T06:32:00+00:00",
 "source": "https://data.rtr.at/api/v2/tables/tk-sms?mediaType=json&unpaged=true",
 "version": 2
 }
