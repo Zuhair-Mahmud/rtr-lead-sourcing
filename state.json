@@ -560,6 +560,15 @@
 "ABS GmbH"
 ]
 },
+"acaioutdoorwear": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"ACAI"
+]
+},
 "acanismajoruk": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -1719,6 +1728,15 @@
 ],
 "sender_ids": [
 "Airpost"
+]
+},
+"airthings": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"Airthings"
 ]
 },
 "airwallet": {
@@ -2911,6 +2929,15 @@
 ],
 "sender_ids": [
 "ameta+"
+]
+},
+"amfiefinancialcooperativeassociationofinternationalcivilservants": {
+"first_seen": "2026-11-27",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"AMFIE"
 ]
 },
 "amgastro": {
@@ -7632,6 +7659,15 @@
 "BAUHAUS"
 ]
 },
+"baukjen": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"Baukjen"
+]
+},
 "bauligconsulting": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -8562,6 +8598,33 @@
 "BFIOOE"
 ]
 },
+"berufsgenossenschaftderbauwirtschaft": {
+"first_seen": "2026-11-27",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"BGBAU"
+]
+},
+"berufsgenossenschaftnahrungsmittelgastgewerbe": {
+"first_seen": "2026-11-27",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"BGN"
+]
+},
+"berufsgenossenschaftrohstoffechemischeindustrie": {
+"first_seen": "2026-11-27",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"BG RCI"
+]
+},
 "besharpkommunikationsmarketing": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -9291,6 +9354,15 @@
 "Bird"
 ]
 },
+"birdblendtea": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"BirdBlend"
+]
+},
 "birgitschsslerhaaremakeupwohlfhlen": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -9635,6 +9707,15 @@
 ],
 "sender_ids": [
 "Blacknut"
+]
+},
+"blakelyclothing": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"Blakely"
 ]
 },
 "blankensofsweden": {
@@ -11425,6 +11506,15 @@
 "BybergNordi"
 ]
 },
+"bylivi": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"By Livi"
+]
+},
 "bymatter": {
 "first_seen": "2026-11-26",
 "providers": [
@@ -12195,6 +12285,15 @@
 "Magdas"
 ]
 },
+"carlkliemenergy": {
+"first_seen": "2026-11-27",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"CKE-Club"
+]
+},
 "carmignacgestionsa": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -12621,6 +12720,15 @@
 ],
 "sender_ids": [
 "dinner4dogs"
+]
+},
+"cerberusstrength": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"CERBERUS"
 ]
 },
 "certsign": {
@@ -14072,6 +14180,15 @@
 "AiguesSBD"
 ]
 },
+"comparables": {
+"first_seen": "2026-11-27",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"COMPARABLES"
+]
+},
 "compassdigitalsolutions": {
 "first_seen": "2026-11-24",
 "providers": [
@@ -14777,6 +14894,15 @@
 ],
 "sender_ids": [
 "CPDNUCLI"
+]
+},
+"cultmiauk": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"CULTMIA"
 ]
 },
 "curavie": {
@@ -18919,6 +19045,15 @@
 "DROPBOX"
 ]
 },
+"dropdeadclothing": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"Drop Dead"
+]
+},
 "dropon": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -21300,6 +21435,15 @@
 "EpicGames"
 ]
 },
+"epicompany": {
+"first_seen": "2026-11-27",
+"providers": [
+"Vonage B.V."
+],
+"sender_ids": [
+"wero"
+]
+},
 "eplassprojectcollaboration": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -21362,6 +21506,15 @@
 ],
 "sender_ids": [
 "EquatePlus"
+]
+},
+"equestrianstockholm": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"Equestrian"
 ]
 },
 "equilorbefektetsizrtkrenmkdrszvnytrsasg": {
@@ -22585,6 +22738,15 @@
 "WEMAITES"
 ]
 },
+"eyda": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"EYDA"
+]
+},
 "eyeknik": {
 "first_seen": "2026-11-26",
 "providers": [
@@ -23175,6 +23337,15 @@
 ],
 "sender_ids": [
 "fairAPART"
+]
+},
+"fairfaxandfavor": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"Fairfax"
 ]
 },
 "fairsicherungsmaklerbrohirzer": {
@@ -25245,6 +25416,15 @@
 "Layn"
 ]
 },
+"frances": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"DearFrances"
+]
+},
 "francetravail": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -27289,6 +27469,15 @@
 "riederei"
 ]
 },
+"giessweinwalkwaren": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"GiessweinUK"
+]
+},
 "giftcardmall": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -29024,6 +29213,15 @@
 "Habanero"
 ]
 },
+"habasit": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"Habasit"
+]
+},
 "habauhochtiefbaugesellschaft": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -30009,6 +30207,15 @@
 "HeproCareAB"
 ]
 },
+"heraclothing": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"HERA"
+]
+},
 "herbachemosanapotheker": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -30346,6 +30553,15 @@
 ],
 "sender_ids": [
 "HILTI"
+]
+},
+"hintersteiner": {
+"first_seen": "2026-11-27",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"HINTERSTEIN"
 ]
 },
 "hiral": {
@@ -34532,6 +34748,15 @@
 "Joybuy"
 ]
 },
+"jitroisparis": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"JITROIS"
+]
+},
 "jkeventgastro": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -36359,6 +36584,15 @@
 "Kinderpunkt"
 ]
 },
+"kindpatches": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"KindPatches"
+]
+},
 "kingkabs": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -37434,6 +37668,15 @@
 ],
 "sender_ids": [
 "emb bike"
+]
+},
+"kukoonrugs": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"Kukoon Rugs"
 ]
 },
 "kuleuvenicts": {
@@ -38543,6 +38786,15 @@
 ],
 "sender_ids": [
 "LEGOIT"
+]
+},
+"legramme": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"le gramme"
 ]
 },
 "legrandbellevue": {
@@ -40236,6 +40488,15 @@
 "LKF"
 ]
 },
+"lune": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"Monday Muse"
+]
+},
 "lunge15ordinationdredvinschreibmaier": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -40536,6 +40797,15 @@
 ],
 "sender_ids": [
 "FFAgent"
+]
+},
+"macomp": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"Carholics"
 ]
 },
 "macons": {
@@ -41469,6 +41739,15 @@
 ],
 "sender_ids": [
 "LUCHSCHEIDR"
+]
+},
+"marywyattlondon": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"MaryWyatt"
 ]
 },
 "maschinenringozentralraum": {
@@ -43855,6 +44134,15 @@
 "Penzmode"
 ]
 },
+"mogoactivewear": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"HASTKO"
+]
+},
 "mohammadrezaimani": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -44672,6 +44960,15 @@
 "Primaria TM"
 ]
 },
+"murlongcres": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"MURLONGCRES"
+]
+},
 "murtalversicherung": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -44679,6 +44976,15 @@
 ],
 "sender_ids": [
 "murtalversi"
+]
+},
+"muscintime": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"Musc Intime"
 ]
 },
 "musictraveler": {
@@ -46974,6 +47280,15 @@
 "nuova GmbH"
 ]
 },
+"nupo": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"Nupo"
+]
+},
 "nussland": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -47657,7 +47972,8 @@
 "Twilio Ireland Ltd"
 ],
 "sender_ids": [
-"Gard Pro"
+"Gard Pro",
+"GardPro"
 ]
 },
 "omnidots": {
@@ -48028,6 +48344,15 @@
 ],
 "sender_ids": [
 "OC-IT"
+]
+},
+"oposuuskunta": {
+"first_seen": "2026-11-27",
+"providers": [
+"MASS Response Service GmbH"
+],
+"sender_ids": [
+"OP Pohjola"
 ]
 },
 "optadatafocus": {
@@ -52800,6 +53125,15 @@
 "PLEurope"
 ]
 },
+"prolonglabuab": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"GentlePatch"
+]
+},
 "promeco": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -55121,6 +55455,15 @@
 "GHProell"
 ]
 },
+"rampleycom": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"RampleyCo"
+]
+},
 "randstadaustria": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -56317,6 +56660,15 @@
 "RiniaReisen"
 ]
 },
+"rinopelleonline": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"RinoPelle"
+]
+},
 "rinoriairtours": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -56681,6 +57033,15 @@
 "RogalandSpb"
 ]
 },
+"rogueandwolf": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"RogueWolf"
+]
+},
 "rohlikskillz": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -56800,6 +57161,15 @@
 "Roschier"
 ]
 },
+"roseandcaramel": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"RoseCaramel"
+]
+},
 "rosenapothekemagpharmsusannemaiwaldeu": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -56861,6 +57231,15 @@
 ],
 "sender_ids": [
 "Senevida"
+]
+},
+"rouje": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"Rouje"
 ]
 },
 "rovelabgbr": {
@@ -57874,6 +58253,15 @@
 "SD AG"
 ]
 },
+"savaamsterdam": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"SAVA"
+]
+},
 "savespace": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -58027,6 +58415,15 @@
 ],
 "sender_ids": [
 "SAS"
+]
+},
+"scandinavianbiolabs": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"biolabs"
 ]
 },
 "scandlinesdanmark": {
@@ -62990,7 +63387,8 @@
 "Twilio Ireland Ltd"
 ],
 "sender_ids": [
-"LEMSSHOESEU"
+"LEMSSHOESEU",
+"LemsShoes"
 ]
 },
 "stephanloibnegger": {
@@ -63612,6 +64010,15 @@
 ],
 "sender_ids": [
 "STRASSL"
+]
+},
+"strathberry": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"STRATHBERRY"
 ]
 },
 "straumann": {
@@ -64818,6 +65225,7 @@
 "LINK Mobility Austria GmbH"
 ],
 "sender_ids": [
+"TARGET e V",
 "TARGET eV"
 ]
 },
@@ -65749,7 +66157,17 @@
 "Twilio Ireland Ltd"
 ],
 "sender_ids": [
+"BeardStrugg",
 "TheBeard"
+]
+},
+"thebeautycrop": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"Beauty Crop"
 ]
 },
 "theconranshop": {
@@ -65976,6 +66394,15 @@
 ],
 "sender_ids": [
 "myThrive"
+]
+},
+"thvintage": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"97thVintage"
 ]
 },
 "thvreisen": {
@@ -66412,6 +66839,15 @@
 ],
 "sender_ids": [
 "TMC Vienna"
+]
+},
+"tmll": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"Temperley"
 ]
 },
 "tmsound": {
@@ -67186,6 +67622,15 @@
 "Treibacher"
 ]
 },
+"tremezzocapital": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"Comoletics"
+]
+},
 "trenkwalderpersonaldienste": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -67888,6 +68333,15 @@
 ],
 "sender_ids": [
 "Julianus"
+]
+},
+"uabpulsetto": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"Pulsetto"
 ]
 },
 "uabsondeflor": {
@@ -68936,6 +69390,15 @@
 ],
 "sender_ids": [
 "Urlaubsguru"
+]
+},
+"urologischepraxisdrmayr": {
+"first_seen": "2026-11-27",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"Dr MAYR-Uro"
 ]
 },
 "uscomdoo": {
@@ -70492,6 +70955,15 @@
 "VIPxml"
 ]
 },
+"vireqsoftwaresolutions": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"vireq"
+]
+},
 "virginexperiencedays": {
 "first_seen": "2026-11-26",
 "providers": [
@@ -70637,6 +71109,15 @@
 ],
 "sender_ids": [
 "VitaMia-Apo"
+]
+},
+"vitomalia": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"Vitomalia"
 ]
 },
 "vitorihealth": {
@@ -73960,6 +74441,15 @@
 "Weissenecke"
 ]
 },
+"wejobbr": {
+"first_seen": "2026-11-27",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"WeJobbr"
+]
+},
 "wejust": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -75131,6 +75621,15 @@
 ],
 "sender_ids": [
 "WV"
+]
+},
+"wpmedia": {
+"first_seen": "2026-11-27",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"Wax Poetics"
 ]
 },
 "wrglerkirchenwirtbetriebs": {
@@ -76518,8 +77017,8 @@
 ]
 }
 },
-"last_post_date": "2026-11-26",
-"last_run": "2026-11-26T15:28:33+00:00",
+"last_post_date": "2026-11-27",
+"last_run": "2026-11-27T06:32:04+00:00",
 "source": "https://data.rtr.at/api/v2/tables/tk-sms?mediaType=json&unpaged=true",
 "version": 2
 }
