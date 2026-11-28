@@ -11406,6 +11406,15 @@
 "C-Burow"
 ]
 },
+"burtonsportartikel": {
+"first_seen": "2026-11-28",
+"providers": [
+"A1 Telekom Austria Aktiengesellschaft"
+],
+"sender_ids": [
+"Burton"
+]
+},
 "burzacennchpaprupraha": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -12191,6 +12200,15 @@
 ],
 "sender_ids": [
 "CareConnect"
+]
+},
+"caredeutschlandev": {
+"first_seen": "2026-11-28",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"CARE"
 ]
 },
 "careiumsweden": {
@@ -13126,6 +13144,15 @@
 ],
 "sender_ids": [
 "Hauerwirt"
+]
+},
+"christocherianeinzelunternehmensoletrader": {
+"first_seen": "2026-11-28",
+"providers": [
+"Telnyx Ireland Ltd."
+],
+"sender_ids": [
+"Qupera"
 ]
 },
 "christoffelblindenmissionsterreichgemeinntzigestiftung": {
@@ -14803,6 +14830,15 @@
 ],
 "sender_ids": [
 "Crowdestate"
+]
+},
+"crownbeam": {
+"first_seen": "2026-11-28",
+"providers": [
+"A1 Telekom Austria Aktiengesellschaft"
+],
+"sender_ids": [
+"Crownbeam"
 ]
 },
 "crugruppo": {
@@ -16609,6 +16645,15 @@
 "PVZBleiburg"
 ]
 },
+"dialogdirectmarketing": {
+"first_seen": "2026-11-28",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"ddfamily"
+]
+},
 "diaretailespaasau": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -16752,6 +16797,15 @@
 ],
 "sender_ids": [
 "DerMetzler"
+]
+},
+"diewienervolkshochschulen": {
+"first_seen": "2026-11-28",
+"providers": [
+"Hutchison Drei Austria GmbH"
+],
+"sender_ids": [
+"VHS-IT"
 ]
 },
 "diezinsjger": {
@@ -17007,6 +17061,15 @@
 "sender_ids": [
 "DGFIP IMPOT",
 "DGFiP"
+]
+},
+"directresultmarketingdeutschland": {
+"first_seen": "2026-11-28",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"DResult"
 ]
 },
 "direktoratetforforvaltningkonomistyring": {
@@ -20773,6 +20836,15 @@
 "ElephantBox"
 ]
 },
+"elevateyou": {
+"first_seen": "2026-11-28",
+"providers": [
+"A1 Telekom Austria Aktiengesellschaft"
+],
+"sender_ids": [
+"ElevateYou"
+]
+},
 "elevel": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -21587,6 +21659,15 @@
 ],
 "sender_ids": [
 "MOURATOGLOU"
+]
+},
+"erfeu": {
+"first_seen": "2026-11-28",
+"providers": [
+"A1 Telekom Austria Aktiengesellschaft"
+],
+"sender_ids": [
+"erf"
 ]
 },
 "ergodent": {
@@ -22840,6 +22921,15 @@
 ],
 "sender_ids": [
 "Fabrick"
+]
+},
+"face2facefundraising": {
+"first_seen": "2026-11-28",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"FacetoFace"
 ]
 },
 "facegymholdings": {
@@ -30418,6 +30508,15 @@
 "Heywaitr"
 ]
 },
+"heyyoumarketing": {
+"first_seen": "2026-11-28",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"HEY YOU"
+]
+},
 "hflingerpersonalservice": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -35696,6 +35795,15 @@
 "KALLCO"
 ]
 },
+"kammerfrarbeiterangestelltefrkrnten": {
+"first_seen": "2026-11-28",
+"providers": [
+"A1 Telekom Austria Aktiengesellschaft"
+],
+"sender_ids": [
+"AK Akademie"
+]
+},
 "kammerfrarbeiterangestelltefrwien": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -35732,6 +35840,15 @@
 ],
 "sender_ids": [
 "The KKA"
+]
+},
+"kampfkunstschuletigerkwoneu": {
+"first_seen": "2026-11-28",
+"providers": [
+"A1 Telekom Austria Aktiengesellschaft"
+],
+"sender_ids": [
+"tigerkwon"
 ]
 },
 "kancelariasignisa": {
@@ -36239,6 +36356,15 @@
 ],
 "sender_ids": [
 "KGEisacktal"
+]
+},
+"kellereikalterngenlandwges": {
+"first_seen": "2026-11-28",
+"providers": [
+"A1 Telekom Austria Aktiengesellschaft"
+],
+"sender_ids": [
+"KG Kaltern"
 ]
 },
 "kellereikurtatschgenlandw": {
@@ -37368,6 +37494,15 @@
 "KostuBeauty"
 ]
 },
+"kovethebrand": {
+"first_seen": "2026-11-28",
+"providers": [
+"A1 Telekom Austria Aktiengesellschaft"
+],
+"sender_ids": [
+"Kove"
+]
+},
 "kozmetikara": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -37923,6 +38058,15 @@
 ],
 "sender_ids": [
 "Lab77"
+]
+},
+"labordiagnosticstgallenwest": {
+"first_seen": "2026-11-28",
+"providers": [
+"Belgacom International Carrier Services S.A."
+],
+"sender_ids": [
+"TAN_LDSGW"
 ]
 },
 "labordiagnostiktiroldrhorstphiladelphydrigortheurl": {
@@ -44066,6 +44210,15 @@
 "TAKSIMCHAT"
 ]
 },
+"mobilitygenossenschaft": {
+"first_seen": "2026-11-28",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"Mobility"
+]
+},
 "mobillscandinavia": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -48040,6 +48193,15 @@
 "ONCE"
 ]
 },
+"onceuponaridesl": {
+"first_seen": "2026-11-28",
+"providers": [
+"A1 Telekom Austria Aktiengesellschaft"
+],
+"sender_ids": [
+"OUAR"
+]
+},
 "onceuponpublishing": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -51022,6 +51184,15 @@
 "PickTheBank"
 ]
 },
+"pickwisery": {
+"first_seen": "2026-11-28",
+"providers": [
+"A1 Telekom Austria Aktiengesellschaft"
+],
+"sender_ids": [
+"Hungro"
+]
+},
 "picssalzburg": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -51248,6 +51419,15 @@
 ],
 "sender_ids": [
 "Place2Book"
+]
+},
+"placestobe": {
+"first_seen": "2026-11-28",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"PlacestoBe"
 ]
 },
 "placetgroupo": {
@@ -52157,6 +52337,15 @@
 ],
 "sender_ids": [
 "PMFDispo"
+]
+},
+"polygondigitalsolutions": {
+"first_seen": "2026-11-28",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"Polygon App"
 ]
 },
 "pomthairestaurant": {
@@ -56090,6 +56279,15 @@
 "BELLISSIMA"
 ]
 },
+"renerobineau": {
+"first_seen": "2026-11-28",
+"providers": [
+"Twilio Ireland Ltd"
+],
+"sender_ids": [
+"webgaudi"
+]
+},
 "renewgroupsweden": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -56948,6 +57146,15 @@
 "THALHAMMERs"
 ]
 },
+"robinhoodpromotion": {
+"first_seen": "2026-11-28",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"Robin Hood"
+]
+},
 "robinmoodflexco": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -57285,6 +57492,15 @@
 ],
 "sender_ids": [
 "Royce"
+]
+},
+"royfort": {
+"first_seen": "2026-11-28",
+"providers": [
+"A1 Telekom Austria Aktiengesellschaft"
+],
+"sender_ids": [
+"Royfort"
 ]
 },
 "rplspol": {
@@ -60223,6 +60439,15 @@
 ],
 "sender_ids": [
 "SIMMI"
+]
+},
+"simonafilipova": {
+"first_seen": "2026-11-28",
+"providers": [
+"A1 Telekom Austria Aktiengesellschaft"
+],
+"sender_ids": [
+"SF Atelier"
 ]
 },
 "simoneknogler": {
@@ -65138,6 +65363,15 @@
 "Refapp"
 ]
 },
+"talk2movefundraising": {
+"first_seen": "2026-11-28",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"talk2move"
+]
+},
 "talk360group": {
 "first_seen": "2026-11-18",
 "providers": [
@@ -65441,11 +65675,13 @@
 "tdm": {
 "first_seen": "2026-11-18",
 "providers": [
+"LINK Mobility Austria GmbH",
 "MASS Response Service GmbH"
 ],
 "sender_ids": [
 "TDM",
-"TDM Dein Jo"
+"TDM Dein Jo",
+"TDM GmbH"
 ]
 },
 "teambank": {
@@ -75623,6 +75859,15 @@
 "WV"
 ]
 },
+"wortstarkconsultingtrainingfundraising": {
+"first_seen": "2026-11-28",
+"providers": [
+"LINK Mobility Austria GmbH"
+],
+"sender_ids": [
+"WORTSTARK"
+]
+},
 "wpmedia": {
 "first_seen": "2026-11-27",
 "providers": [
@@ -75795,6 +76040,15 @@
 ],
 "sender_ids": [
 "WWK MFA"
+]
+},
+"wydefootwear": {
+"first_seen": "2026-11-28",
+"providers": [
+"A1 Telekom Austria Aktiengesellschaft"
+],
+"sender_ids": [
+"WYDE"
 ]
 },
 "wykversicherungsmakler": {
@@ -77017,8 +77271,8 @@
 ]
 }
 },
-"last_post_date": "2026-11-27",
-"last_run": "2026-11-27T23:35:47+00:00",
+"last_post_date": "2026-11-28",
+"last_run": "2026-11-28T06:32:15+00:00",
 "source": "https://data.rtr.at/api/v2/tables/tk-sms?mediaType=json&unpaged=true",
 "version": 2
 }
